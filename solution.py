@@ -9,5 +9,7 @@ def solution(x_success: int,
              x_cnt: int, 
              y_success: int, 
              y_cnt: int) -> bool:
-    result = proportions_ztest(count = x_success + y_success, nobs = x_cnt + y_cnt)
+    count = np.array(x_success, y_success)
+    nobs = np.array(x_cnt, y_cnt)
+    result = proportions_ztest(count, nobs)
     return result[1] < 0.02 # Ваш ответ, True или False
